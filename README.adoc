@@ -1,0 +1,5 @@
+= Docker RVM for CI
+
+This repository contains some `Dockerfile` code for building containers which
+come pre-baked with RVM for builds and tests in
+link:https://jenkins.io[Jenkins].
