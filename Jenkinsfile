@@ -17,7 +17,7 @@ node('docker') {
                      passwordVariable: 'DOCKERHUB_TOKEN',
                      usernameVariable: 'DOCKERHUB_EMAIL']]) {
         /* Our variables be exposed in the environment and we must log in before trying to publish to Dockerhub */
-        sh 'docker login --username ${DOCKERHUB_EMAIL} --password ${DOCKERHUB_TOKEN}'
+        sh 'docker login --username rtyler --password ${DOCKERHUB_TOKEN}'
         sh './push-rubies.sh'
     }
 }
