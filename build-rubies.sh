@@ -9,7 +9,7 @@ mkdir -p work
 for RUBY in "${RUBIES[@]}"; do
     DOCKERFILE="work/dockerfile-${RUBY}"
     cat > $DOCKERFILE <<EOF
-FROM rtyler/ci-rvm:latest
+FROM ${IMAGE_TAG}:latest
 
 RUN bash -c 'source /usr/local/rvm/scripts/rvm && rvm install ${RUBY}'
 EOF

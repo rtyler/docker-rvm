@@ -4,7 +4,10 @@
 node('docker') {
     checkout scm
 
-    stage 'Build Containers'
+    stage 'Prepare base RVM container'
+    sh './build-base.sh'
+
+    stage 'Build Containers for Rubies'
     sh './build-rubies.sh'
 
     stage 'Publish Containers'
