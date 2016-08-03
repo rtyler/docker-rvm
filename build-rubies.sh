@@ -11,7 +11,7 @@ for RUBY in "${RUBIES[@]}"; do
     cat > $DOCKERFILE <<EOF
 FROM ${IMAGE_TAG}:latest
 
-RUN bash -c 'source /usr/local/rvm/scripts/rvm && rvm install ${RUBY}'
+RUN bash -c 'source ~/.rvm/scripts/rvm && rvm install ${RUBY}'
 EOF
 
     echo "> Making ${IMAGE_TAG}:${RUBY}"
