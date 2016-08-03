@@ -15,9 +15,9 @@ node('docker') {
     withCredentials([[$class: 'UsernamePasswordMultiBinding',
                         credentialsId: 'dockerhub',
                      passwordVariable: 'DOCKERHUB_TOKEN',
-                     usernameVariable: 'DOCKERHUB_EMAIL']]) {
+                     usernameVariable: 'DOCKERHUB_USERNAME']]) {
         /* Our variables be exposed in the environment and we must log in before trying to publish to Dockerhub */
-        sh 'docker login --username rtyler --password ${DOCKERHUB_TOKEN}'
+        sh 'docker login --username=${DOCKERHUB_USERNAME} --email=tyler@monkeypox.org --password=${DOCKERHUB_TOKEN}'
         sh './push-rubies.sh'
     }
 }
