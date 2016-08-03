@@ -3,3 +3,16 @@
 This repository contains some `Dockerfile` code for building containers which
 come pre-baked with RVM for builds and tests in
 link:https://jenkins.io[Jenkins].
+
+
+== Tags
+
+The `rtyler/rvm` image alone is simply `ubuntu:trusty` with the latest stable
+link:http://rvm.io[RVM] installed on it. There are however additional tags with Rubies
+pre-installed:
+
+* `rtyler/rvm:2.3.0` - Ruby (MRI) 2.3.0
+* `rtyler/rvm:jruby` - JRuby, whichever version RVM aliases to
+* `rtyler/rvm:ruby-head` - Ruby (MRI)'s latest `HEAD` at the time of image
+  creation
+* `rtyler/rvm:rubinius` - Rubinius
