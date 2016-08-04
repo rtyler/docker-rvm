@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def rubies = ['2.3.0', '2.3.1', '2.2.5', '2.1.10', 'jruby', 'jruby-9.1.2.0', 'rubinius', 'ree']
+def rubies = ['2.3.0', '2.3.1', '2.2.5', '2.1.10', 'jruby', 'jruby-9.1.2.0', 'ree']
 
 node('docker') {
     checkout scm
