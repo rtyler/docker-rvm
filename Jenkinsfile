@@ -24,6 +24,7 @@ node('docker') {
         def ruby = rubies.get(i)
         stepsForParallel[ruby] = {
             node {
+                checkout scm
                 sh "./build-rubies.sh ${ruby}"
                 /* Using credentials with the ID 'dockerhub' from the Jenkins installation */
                 withCredentials([[$class: 'UsernamePasswordMultiBinding',
