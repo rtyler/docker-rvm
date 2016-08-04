@@ -9,7 +9,14 @@ node('docker') {
     sh './build-base.sh'
 
     stage 'Push base RVM container'
-    sh './push-base.sh'
+    withCredentials([[$class: 'UsernamePasswordMultiBinding',
+                        credentialsId: 'dockerhub',
+                    passwordVariable: 'DOCKERHUB_TOKEN',
+                    usernameVariable: 'DOCKERHUB_USERNAME']]) {
+        /* Our variables be exposed in the environment and we must log in before trying to publish to Dockerhub */
+        sh 'docker login --username=${DOCKERHUB_USERNAME} --email=tyler@monkeypox.org --password=${DOCKERHUB_TOKEN}'
+        sh './push-base.sh'
+    }
 
     stage 'Build Containers for Rubies'
     def stepsForParallel = [:]
