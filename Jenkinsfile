@@ -18,7 +18,6 @@ node('docker') {
         stepsForParallel[ruby] = {
             node {
                 sh "./build-rubies.sh ${ruby}"
-                sh './pu
                 /* Using credentials with the ID 'dockerhub' from the Jenkins installation */
                 withCredentials([[$class: 'UsernamePasswordMultiBinding',
                                     credentialsId: 'dockerhub',
