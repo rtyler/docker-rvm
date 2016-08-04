@@ -6,6 +6,10 @@ source ./rubies
 
 mkdir -p work
 
+if [ -n $1 ]; then
+    RUBIES=( "${1}" )
+fi;
+
 for RUBY in "${RUBIES[@]}"; do
     DOCKERFILE="work/dockerfile-${RUBY}"
     cat > $DOCKERFILE <<EOF

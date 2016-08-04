@@ -4,7 +4,9 @@ set -x
 
 source ./rubies
 
-docker push ${IMAGE_TAG}:latest
+if [ -n $1 ]; then
+    RUBIES=( "${1}" )
+fi;
 
 for RUBY in "${RUBIES[@]}"; do
     echo "> Pushing ${IMAGE_TAG}:${RUBY}"

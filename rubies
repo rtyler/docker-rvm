@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-export RUBIES=( 2.3.0 jruby jruby-9.1.2.0 ruby-head)
+export RUBIES=( 2.3.0 2.3.1 2.2.5 jruby jruby-9.1.2.0 ruby-head)
 
 export IMAGE_TAG="rtyler/rvm"
